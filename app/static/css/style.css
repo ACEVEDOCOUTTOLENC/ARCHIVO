@@ -1,27 +1,22 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 .dashboard {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
     padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    color: #333;
 }
 
 .search-box {
@@ -32,9 +27,9 @@ h1 {
 .search-box input {
     width: 80%;
     padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
 .record-list {
@@ -42,14 +37,27 @@ h1 {
     padding: 0;
 }
 
-.record-list li {
-    background-color: #f9f9f9;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 4px;
+.record {
+    padding: 15px;
+    margin: 5px 0;
     border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.record-list li:hover {
-    background-color: #f1f1f1;
+.record:hover {
+    background-color: #e6e6e6;
+}
+
+.action-container {
+    margin-top: 10px;
+}
+
+.action-container select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }

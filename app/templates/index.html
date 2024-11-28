@@ -9,14 +9,48 @@
 <body>
     <div class="dashboard">
         <h1>EXPEDIENTES</h1>
+
         <!-- Formulario de búsqueda -->
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="Buscar registros..." oninput="searchRecords()">
         </div>
-        
+
         <!-- Lista de registros -->
         <ul id="recordList" class="record-list">
-            <!-- Aquí aparecerán los registros -->
+            <!-- Ejemplo de registros -->
+            <li class="record" data-client-id="1">
+                Cliente 1
+                <div class="action-container" style="display: none;">
+                    <label for="actionSelect1">Seleccione una acción:</label>
+                    <select id="actionSelect1" onchange="handleAction(this, 'Cliente 1')">
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="solicitar">Solicitar</option>
+                        <option value="regresar">Regresar</option>
+                    </select>
+                </div>
+            </li>
+            <li class="record" data-client-id="2">
+                Cliente 2
+                <div class="action-container" style="display: none;">
+                    <label for="actionSelect2">Seleccione una acción:</label>
+                    <select id="actionSelect2" onchange="handleAction(this, 'Cliente 2')">
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="solicitar">Solicitar</option>
+                        <option value="regresar">Regresar</option>
+                    </select>
+                </div>
+            </li>
+            <li class="record" data-client-id="3">
+                Cliente 3
+                <div class="action-container" style="display: none;">
+                    <label for="actionSelect3">Seleccione una acción:</label>
+                    <select id="actionSelect3" onchange="handleAction(this, 'Cliente 3')">
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="solicitar">Solicitar</option>
+                        <option value="regresar">Regresar</option>
+                    </select>
+                </div>
+            </li>
         </ul>
     </div>
 

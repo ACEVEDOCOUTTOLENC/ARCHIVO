@@ -1,35 +1,41 @@
-// Simulamos una base de datos con registros
-const records = [
-    { id: 1, name: 'Juan Pérez', email: 'juan@example.com' },
-    { id: 2, name: 'Ana García', email: 'ana@example.com' },
-    { id: 3, name: 'Carlos Rodríguez', email: 'carlos@example.com' },
-    { id: 4, name: 'Laura Gómez', email: 'laura@example.com' },
-    { id: 5, name: 'Pedro López', email: 'pedro@example.com' }
-];
-
-// Función para mostrar los registros en la lista
-function displayRecords(filteredRecords) {
-    const recordList = document.getElementById('recordList');
-    recordList.innerHTML = ''; // Limpiar lista antes de agregar los nuevos resultados
-
-    filteredRecords.forEach(record => {
-        const li = document.createElement('li');
-        li.textContent = `${record.name} - ${record.email}`;
-        recordList.appendChild(li);
-    });
-}
-
-// Función de búsqueda de registros
+// Función para buscar registros
 function searchRecords() {
-    const searchInput = document.getElementById('searchInput').value.toLowerCase();
-    const filteredRecords = records.filter(record => {
-        return record.name.toLowerCase().includes(searchInput) || record.email.toLowerCase().includes(searchInput);
-    });
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const records = document.querySelectorAll(".record");
 
-    displayRecords(filteredRecords); // Muestra los registros filtrados
+    records.forEach(record => {
+        if (record.textContent.toLowerCase().includes(input)) {
+            record.style.display = "block";
+        } else {
+            record.style.display = "none";
+        }
+    });
 }
 
-// Al cargar la página, mostramos todos los registros
-window.onload = () => {
-    displayRecords(records);
-};
+// Función para mostrar las acciones al seleccionar un cliente
+document.querySelectorAll('.record').forEach(record => {
+    record.addEventListener('click', function () {
+        const actionContainer = this.querySelector('.action-container');
+
+        // Ocultar los action-container de otros registros
+        document.querySelectorAll('.action-container').forEach(container => {
+            container.style.display = 'none';
+        });
+
+        // Mostrar el action-container del registro seleccionado
+        actionContainer.style.display = 'block';
+    });
+});
+
+// Función para manejar las acciones seleccionadas
+function handleAction(selectElement, clientName) {
+    const selectedAction = selectElement.value;
+
+    if (selectedAction === "solicitar") {
+        alert(`Has seleccionado 'Solicitar' para ${clientName}.`);
+        // Lógica adicional para 'Solicitar' aquí
+    } else if (selectedAction === "regresar") {
+        alert(`Has seleccionado 'Regresar' para ${clientName}.`);
+        // Lógica adicional para 'Regresar' aquí
+    }
+}
