@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Registros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>EXPEDIENTES</h1>
+        <!-- Formulario de búsqueda -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar registros..." oninput="searchRecords()">
+        </div>
+        
+        <!-- Lista de registros -->
+        <ul id="recordList" class="record-list">
+            <!-- Aquí aparecerán los registros -->
+        </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
