@@ -1,10 +1,13 @@
 import os
 from dotenv import load_dotenv
 
-# Cargar variables del archivo .env
-load_dotenv()
+load_dotenv()  # Cargar las variables del archivo .env
 
 class Config:
-    SECRET_KEY = os.getenv("SECRET_KEY", "default_secret_key")
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = (
+        f"postgresql+psycopg2://{os.getenv('DATABASE_USER')}:"
+        f"{os.getenv('DATABASE_PASSWORD')}@"
+        f"{os.getenv('DATABASE_HOST')}:{os.getenv('DATABASE_PORT')}/"
+        f"{os.getenv('DATABASE_NAME')}"
+    )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
